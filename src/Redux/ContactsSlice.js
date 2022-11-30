@@ -27,18 +27,16 @@ const contactsSlice = createSlice({
     [fetchContacts.rejected]: handleRejected,
     [addContacts.pending]: handlePending,
     [addContacts.fulfilled](state, action) {
-      console.log(action);
       state.isLoading = false;
       state.error = null;
       state.userContacts.push(action.payload);
     },
     [addContacts.rejected]: handleRejected,
     [deleteContacts.pending]: handlePending,
-    [deleteContacts.fulfilled](state, { payload }) {
-      console.log(payload);
+    [deleteContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.userContacts.filter(({ id }) => id !== payload);
+      state.userContacts.filter(({ id }) => id !== action.payload.id);
     },
     [deleteContacts.rejected]: handleRejected,
   },
