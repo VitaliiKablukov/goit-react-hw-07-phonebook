@@ -1,10 +1,10 @@
 import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContacts } from 'Redux/FilterContacts';
-import { getContacts } from 'Redux/selectors';
+import { selectContacts } from 'Redux/selectors';
 
 export const Filter = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const filterText = e => {
