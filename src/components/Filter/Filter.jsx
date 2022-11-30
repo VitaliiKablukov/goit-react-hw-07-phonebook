@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContacts } from 'Redux/FilterContacts';
 import { getContacts } from 'Redux/selectors';
+
 export const Filter = () => {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();

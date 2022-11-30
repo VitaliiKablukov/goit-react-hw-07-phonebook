@@ -7,13 +7,13 @@ export const ContactList = () => {
   const filterText = useSelector(getFilterText);
 
   const visibleContacts = contacts.filter(({ name }) =>
-    name.toLowerCase().includes(filterText)
+    name.toLowerCase().includes(filterText.toLowerCase())
   );
   return contacts.length > 0 ? (
     <ContactsList>
       {visibleContacts.length > 0 ? (
         visibleContacts.map(contactItem => {
-          return <ContactItem contactItem={contactItem} />;
+          return <ContactItem key={contactItem.id} contactItem={contactItem} />;
         })
       ) : (
         <li>
